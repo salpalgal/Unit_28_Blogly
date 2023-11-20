@@ -7,11 +7,25 @@
 <section>
     <h1>{{user.first_name}} {{user.last_name}}</h1>
     <img src="{{user.image_url}}" alt="" width="100">
+   
     <form action="/users/{{user.id}}/edit">
         <button>Edit</button>
     </form>
     <form action="/users/{{user.id}}/delete" method = "POST">
         <button>Delete</button>
+    </form>
+    <section>
+        <h1>Posts</h1>
+        <ul>
+            {% for p in post %}
+            <li>
+                <a href="/posts/{{p.id}}">{{p.title}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+    <form action="/users/{{user.id}}/posts/new">
+        <button>Add Post</button>
     </form>
 </section>
 
