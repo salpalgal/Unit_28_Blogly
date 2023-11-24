@@ -10,6 +10,10 @@
     <input type="text" name = "title">
     <label for="">Content : </label>
     <input type="text"  name = "content">
+    {% for tag in tags %}
+    <input type="checkbox" name="tag" id="tag" value = "{{tag.name}}">
+    <label for="tag">{{tag.name}}</label>
+    {% endfor%}
     
     <button type = "submit" formaction="/users/{{user.id}}/posts/new" >Add</button>
     <button type = "submit" formaction = "/users/{{user.id}}" formmethod="GET">Cancel</button>

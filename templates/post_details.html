@@ -7,6 +7,11 @@
     <h1>{{post.title}}</h1>
     <p>{{post.content}}</p>
     <p>By: {{post.user_post.first_name}} {{post.user_post.last_name}}</p>
+    <p>Tags :</p>
+    {% for tag in tags %}
+    <p><a href="/tags/{{tag.id}}">{{tag.name}}</a></p>
+    {% endfor %}
+    
     <form action="">
         <button type = "submit" formaction = "/users/{{post.user_id}}">Cancel</button>
         <button type = "submit" formaction="/posts/{{post.id}}/edit" >Edit</button>
